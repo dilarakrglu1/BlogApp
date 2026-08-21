@@ -1,3 +1,4 @@
+using BlogApp.Entities;
 using BlogApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -8,7 +9,9 @@ namespace BlogApp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            Veritabani veritabani = new Veritabani();
+            User user=veritabani.Users.FirstOrDefault();
+            return View(user);
         }
 
         public IActionResult Privacy()

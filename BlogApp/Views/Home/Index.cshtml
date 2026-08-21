@@ -1,5 +1,18 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model BlogApp.Entities.User
 
-<p> merhaba ben dilara</p>
+<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*L-2nXmUaV35Zhwyf5qiIow.jpeg" />
+<p><b>Inner Join:</b> Her iki tabloda da eşleşen kayıtları getirir. Sadece kesişim kümesini alır.</p>
+<p><b>Left Join (Left Outer Join):</b> Sol tablodaki tüm kayıtları ve sağ tabloda eşleşen kayıtları getirir. Sağ tabloda eşleşme yoksa NULL değerini döner.</p>
+<p><b>Right Join (Right Outer Join):</b> Sağ tablodaki tüm kayıtları ve sol tabloda eşleşen kayıtları getirir. Sol tabloda eşleşme yoksa NULL değerini döner.</p>
+<p><b>Full Join (Full Outer Join):</b> Eşleşme olsun ya da olmasın, her iki tablodaki tüm kayıtları getirir. Eşleşmeyen kısımlar NULL olur.</p>
+<p><b>Cross Join:</b> Sol tablodaki her bir kaydı, sağ tablodaki tüm kayıtlarla eşleştirerek Kartezyen çarpım (Cartesian Product) oluşturur.</p>
+<p><b>Self Join:</b> Bir tablonun kendi kendisiyle birleştirilmesidir (genellikle aynı tabloya iki farklı takma ad / alias verilerek yapılır).</p>
+@* <p> merhaba ben @Model.Username </p>
+<p>Mail adresim: @Model.Email</p>
+<div>
+    selamlar ben @Model.CreatedDate tarihinde oluşturuldum.
+</div>
+
+<div>
+    Şuanki tarih: @DateTime.Now
+</div> *@

@@ -49,6 +49,11 @@ namespace BlogApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "CreatedDate", "Email", "Password", "Username" },
+                values: new object[] { 1, new DateTime(2026, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "dilara.krglu@gmail.com", "123456", "dilara" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Blogs_UserId",
                 table: "Blogs",

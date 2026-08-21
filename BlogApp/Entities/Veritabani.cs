@@ -12,5 +12,18 @@ namespace BlogApp.Entities
             optionsBuilder.UseSqlite("Data Source=database.db");
             base.OnConfiguring(optionsBuilder);
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasData(new User
+            {
+                Id = 1,
+                Username = "dilara",
+                Email = "dilara.krglu@gmail.com",
+                Password = "123456",
+                CreatedDate = new DateTime(2026, 08, 21),
+                Blogs = []
+            });
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

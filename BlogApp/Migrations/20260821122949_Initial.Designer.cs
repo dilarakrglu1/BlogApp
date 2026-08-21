@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogApp.Migrations
 {
     [DbContext(typeof(Veritabani))]
-    [Migration("20260821080019_Initial")]
+    [Migration("20260821122949_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -71,6 +71,16 @@ namespace BlogApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2026, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "dilara.krglu@gmail.com",
+                            Password = "123456",
+                            Username = "dilara"
+                        });
                 });
 
             modelBuilder.Entity("BlogApp.Entities.Blog", b =>
