@@ -1,10 +1,12 @@
 using BlogApp.Entities;
 using BlogApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace BlogApp.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()
