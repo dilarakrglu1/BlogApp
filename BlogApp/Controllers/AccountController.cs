@@ -25,7 +25,8 @@ namespace BlogApp.Controllers
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, user.Email)
+                    new Claim(ClaimTypes.Name, user.Email),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
                 };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -49,6 +50,41 @@ namespace BlogApp.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login", "Account");
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(CreateUserModel model)
+        {
+            Veritabani veritabani = new Veritabani();
+
+            bool varmi = veritabani.Users.Any(u => u.Username == model.Username || u.Email == model.Email);
+
+            if (varmi)
+            {
+                ModelState.AddModelError("", "Sistemde zaten bu bilgilerle aynı kullanıcı mevcuttur.");
+                return View();
+            }
+            else
+            {
+                User user = new User
+                {
+                    Username = model.Username,
+                    Email = model.Email,
+                    Password = model.Password,
+                    CreatedDate = DateTime.Now
+                };
+
+                veritabani.Users.Add(user);
+                veritabani.SaveChanges();
+
+                return RedirectToAction("Login", "Account");
+            }
         }
     }
 

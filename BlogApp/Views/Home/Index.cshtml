@@ -1,18 +1,27 @@
-﻿@model BlogApp.Entities.User
-
-<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*L-2nXmUaV35Zhwyf5qiIow.jpeg" />
-<p><b>Inner Join:</b> Her iki tabloda da eşleşen kayıtları getirir. Sadece kesişim kümesini alır.</p>
-<p><b>Left Join (Left Outer Join):</b> Sol tablodaki tüm kayıtları ve sağ tabloda eşleşen kayıtları getirir. Sağ tabloda eşleşme yoksa NULL değerini döner.</p>
-<p><b>Right Join (Right Outer Join):</b> Sağ tablodaki tüm kayıtları ve sol tabloda eşleşen kayıtları getirir. Sol tabloda eşleşme yoksa NULL değerini döner.</p>
-<p><b>Full Join (Full Outer Join):</b> Eşleşme olsun ya da olmasın, her iki tablodaki tüm kayıtları getirir. Eşleşmeyen kısımlar NULL olur.</p>
-<p><b>Cross Join:</b> Sol tablodaki her bir kaydı, sağ tablodaki tüm kayıtlarla eşleştirerek Kartezyen çarpım (Cartesian Product) oluşturur.</p>
-<p><b>Self Join:</b> Bir tablonun kendi kendisiyle birleştirilmesidir (genellikle aynı tabloya iki farklı takma ad / alias verilerek yapılır).</p>
-@* <p> merhaba ben @Model.Username </p>
-<p>Mail adresim: @Model.Email</p>
-<div>
-    selamlar ben @Model.CreatedDate tarihinde oluşturuldum.
+﻿<div id="carouselExample" class="carousel slide bg-dark">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="d-flex justify-content-center p-3">
+                <img src="https://picsum.photos/id/236/400/250" class="img-fluid rounded" alt="..." style="max-height: 300px; object-fit: cover;">
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="d-flex justify-content-center p-3">
+                <img src="https://picsum.photos/id/238/400/250" class="img-fluid rounded" alt="..." style="max-height: 300px; object-fit: cover;">
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="d-flex justify-content-center p-3">
+                <img src="https://picsum.photos/id/239/400/250" class="img-fluid rounded" alt="..." style="max-height: 300px; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
-
-<div>
-    Şuanki tarih: @DateTime.Now
-</div> *@

@@ -11,11 +11,10 @@ namespace BlogApp.Controllers
     {
         public IActionResult Index()
         {
-            Veritabani veritabani = new Veritabani();
-            User user=veritabani.Users.FirstOrDefault();
-            return View(user);
+            return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Privacy()
         {
             return View();

@@ -1,0 +1,44 @@
+﻿@using BlogApp.Entities
+@model List<Blog>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Blog Yazılarım</h2>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="row">
+            @foreach (var blog in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">@blog.Title</h5>
+                            <p class="card-text text-muted">
+                                @(blog.Content.Length > 120 ? blog.Content.Substring(0, 120) + "..." : blog.Content)
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between align-items-center">
+                            <small class="text-secondary">
+                                <i class="bi bi-calendar"></i> @blog.CreatedDate.ToString("dd MMM yyyy")
+                            </small>
+
+                            <div class="d-flex gap-2">
+                                <a href="/Blog/GetDetail/@blog.Id" class="btn btn-primary btn-sm">Devamını Oku</a>
+                                <a href="/Blog/Update/@blog.Id" class="btn btn-primary btn-sm">Güncelle</a>
+                                <form asp-controller="Blog" asp-action="Delete" method="post" asp-route-id="@blog.Id" class="m-0">
+                                    <button class="btn btn-info btn-sm">Sil</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            Henüz paylaşılan bir blog yazısı bulunamadı.
+        </div>
+    }
+</div>
